@@ -5,8 +5,8 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage 
 from tqdm import tqdm, trange
 
-sender = "bachuharish577@gmail.com"
-sender_pass = "xgpm abhw dprq biog"        #Application Password may be necessary
+sender = "<user name>"
+sender_pass = "<user app password>"        #Application Password may be necessary
 
 #Feel free to message these guys xDD
 receivers = {
