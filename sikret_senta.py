@@ -5,16 +5,17 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage 
 from tqdm import tqdm, trange
 
-sender = "<add sender email>"
-sender_pass = "<add sender email password>"        #Application Password may be necessary
+sender = "bachuharish577@gmail.com"
+sender_pass = "xgpm abhw dprq biog"        #Application Password may be necessary
 
 #Feel free to message these guys xDD
 receivers = {
-    "Rohan" : 'rohanjijju@gmail.com', 
-    "Kaustubh" : 'kaustubhpsonawane@gmail.com', 
-    "Manas" : 'manasdtrivedi@gmail.com', 
+    "Jijju" : 'rohanjijju@gmail.com', 
+    "K-man" : 'kaustubhpsonawane@gmail.com', 
+    "Allwin" : 'aldsouza4@gmail.com', 
     "Sam" : 'samsabu2000@gmail.com',
-    "Harish" : "bachuharish577@gmail.com"
+    "Bachu" : 'bachuharish577@gmail.com', 
+    "Warke" : 'shrvu36@gmail.com'
 }
 
 def send_email(receiver, beneficiary):
@@ -24,31 +25,27 @@ def send_email(receiver, beneficiary):
     message["subject"] = "Your Secret Santa name is..."
 
     body = f"""
-        <h1 style="font-size:40px">Secret Santa!!!</h1>
+        <h1 style="font-size:40px">Ah shit, here we go again.</h1>
         <p style="font-size:18px"> 
-            Henlo Fren!!! <br>
-            Good Afternoon <br>  
-            Your Secret Santa name is: {beneficiary}
+            Felicitations fellow fucker! <br>  
+            Your Secret Santa name is: {beneficiary} <br>
+            Email ID : {receivers[beneficiary]}
             <br><br>
-            For maximum hilarious, keep your name mysterious :) 
+            Disclose your name and risk fatality. John Wick style. <br>
+            Moye Moye <br>
             <br> 
-            Merry jingle sounds or whatever
+            'tis the season to be silly<br>
+            Fa la la la la<br>
+            la la la laaaa
             <br><br> 
             Regards, <br>
-            Your friendly neighborhood spiderman. 
+            Bhupendra Jogi. 
         </p>
         
-    """ 
-    # <img src="C:\\Users\\bachu\\Downloads\\santa.png" alt="trial"></img>    
+    """     
     html_body = MIMEText(body, "html")
     message.attach(html_body) 
 
-    # # ###########Error
-    fp = open("C:\\Users\\bachu\\Downloads\\office-christmas-giphy1.gif", 'rb')
-    msgImage = MIMEImage(fp.read())
-    fp.close()
-    message.attach(msgImage)
-    # # ###################
     s = smtplib.SMTP('smtp.gmail.com', 587) 
     s.starttls()
     s.login(sender, sender_pass) 
@@ -60,7 +57,8 @@ def main():
 
     santas = list(receivers.keys())
     while True:
-        flag = 0 
+        flag = 0
+        print("Shuffling...") 
         santees = santas.copy()
         random.shuffle(santees) 
         for idx in range(len(santas)):
@@ -68,7 +66,8 @@ def main():
                 flag = 1 
         if flag == 0:
             break 
-        
+    print("Shuffled!")
+
     # send_email("Harish", "Harish") 
     for idx in trange(len(santas), desc="Sending Emails", ncols=100):
         santa = santas[idx]
